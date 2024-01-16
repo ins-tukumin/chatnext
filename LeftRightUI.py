@@ -148,15 +148,15 @@ def on_input_change():
     conversation = load_conversation()
     with st.spinner("相手からの返信を待っています。。。"):
         if  st.session_state.count == 1:
-            time.sleep(3)
+            time.sleep(120)
         elif st.session_state.count == 2:
-            time.sleep(3)
+            time.sleep(90)
         elif st.session_state.count == 3:
-            time.sleep(3)
+            time.sleep(105)
         elif st.session_state.count == 4:
-            time.sleep(3)
+            time.sleep(90)
         elif st.session_state.count == 5:
-            time.sleep(3)
+            time.sleep(90)
         else :
             time.sleep(3)
         answer = conversation.predict(input=user_message)
@@ -186,7 +186,7 @@ if user_number:
     # st.write(f"こんにちは、{user_number}さん！")
     # 初期済みでない場合は初期化処理を行う
     if not firebase_admin._apps:
-            cred = credentials.Certificate('chatapp-509c9-firebase-adminsdk-5tvj9-9106d52707.json') 
+            cred = credentials.Certificate('chatnext-85535-firebase-adminsdk-il9bw-3b1b6c2187.json') 
             default_app = firebase_admin.initialize_app(cred)
     db = firestore.client()
     #doc_ref = db.collection(user_number)
@@ -217,7 +217,7 @@ with st.container():
 #    on_input_change()
 
 
-redirect_link = "https://nagoyapsychology.qualtrics.com/jfe/form/SV_cw48jqskbAosSLY"
+redirect_link = "https://nagoyapsychology.qualtrics.com/jfe/form/SV_1M3cjOQM09gOcEC"
 st.markdown(f'<a href="{redirect_link}" target="_blank">5往復のチャットが終了したらこちらを押してください。</a>', unsafe_allow_html=True)
 #if st.button("終了したらこちらを押してください。画面が遷移します。"):
     #redirect_to_url("https://www.google.com")
