@@ -181,7 +181,7 @@ def redirect_to_url(url):
 # st.title("ChatApp")
 # st.caption("Q&A")
 # st.write("議論を行いましょう！")
-user_number = st.text_input("学籍番号を半角で入力してエンターを押してください")
+user_number = st.text_input("参加者コードを半角で入力してエンターを押してください")
 if user_number:
     # st.write(f"こんにちは、{user_number}さん！")
     # 初期済みでない場合は初期化処理を行う
@@ -208,7 +208,9 @@ with st.container():
         user_message = st.text_input("「原子力発電は廃止すべき」という意見に対して、あなたの意見を入力して送信ボタンを押してください", key="user_message")
         st.button("送信", on_click=on_input_change)
     elif st.session_state.count == 5:
-        st.write("意見交換はこちらで終了です。URLをクリックしてください。")
+        st.write("意見交換はこちらで終了です。")
+        redirect_link = "https://nagoyapsychology.qualtrics.com/jfe/form/SV_1M3cjOQM09gOcEC"
+        st.markdown(f'<a href="{redirect_link}" target="_blank">こちらを押してください。</a>', unsafe_allow_html=True)
     else:
         user_message = st.text_input("あなたの意見を入力して送信ボタンを押してください", key="user_message")
         st.button("送信", on_click=on_input_change)
@@ -217,8 +219,8 @@ with st.container():
 #    on_input_change()
 
 
-redirect_link = "https://nagoyapsychology.qualtrics.com/jfe/form/SV_1M3cjOQM09gOcEC"
-st.markdown(f'<a href="{redirect_link}" target="_blank">5往復のチャットが終了したらこちらを押してください。</a>', unsafe_allow_html=True)
+#redirect_link = "https://nagoyapsychology.qualtrics.com/jfe/form/SV_1M3cjOQM09gOcEC"
+#st.markdown(f'<a href="{redirect_link}" target="_blank">5往復のチャットが終了したらこちらを押してください。</a>', unsafe_allow_html=True)
 #if st.button("終了したらこちらを押してください。画面が遷移します。"):
     #redirect_to_url("https://www.google.com")
 
